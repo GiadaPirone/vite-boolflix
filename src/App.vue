@@ -15,13 +15,15 @@ export default{
   },
   data (){
     return{
-        store
+        store,
+
     }
   },
   mounted(){
+
      axios.get(this.store.url).then(r=>{
       this.store.filtoFilm = r.data.results
-      console.log(r.data.results)
+      console.log(r.data)
      })
   }
 }

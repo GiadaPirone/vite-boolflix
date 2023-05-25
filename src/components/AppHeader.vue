@@ -1,15 +1,23 @@
 <script>
+import axios from 'axios';
+import { store } from '../store';
     export default{
         name: "AppHeader",
 
         data (){
             return{
+                store,
                 cercaFilm:""
             }
         },
         methods:{
-
-        }
+            filtraFilm(){
+                axios.get(this.store.url).then(r=>{
+                    this.store.Film = r.data
+                    console.log(r.data)
+                })
+            }
+        },
     }
 </script>
 
@@ -22,7 +30,7 @@
         </div>
 
         <div>
-            <input type="text" placeholder="Cerca Film" v-model="cercaFilm">
+            <input type="text" placeholder="Cerca Film" @change="filtraFilm" v-model="cercaFilm">
             <button>cerca</button>
         </div>
     </div>
