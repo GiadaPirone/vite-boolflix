@@ -2,7 +2,8 @@
 // https://api.themoviedb.org/3/movie/550?api_key=86bfacbb56746e47c21e5ae8bcdeeb10
 
 import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue'
+import AppMainFilm from './components/AppMainFilm.vue'
+import AppMainSerie from './components/AppMainSerie.vue'
 
 import {store} from './store.js'
 import axios from 'axios'
@@ -10,7 +11,8 @@ import axios from 'axios'
 export default{
   components:{
     AppHeader,
-    AppMain,
+    AppMainFilm,
+    AppMainSerie,
 
   },
   data (){
@@ -35,7 +37,9 @@ export default{
   </header>
 
   <main>
-    <AppMain />
+    <AppMainFilm />
+    <AppMainSerie />
+
   </main>
 </template>
 
@@ -43,6 +47,10 @@ export default{
 // @use "./styles/generic.scss" as*;
 header{
   background-color: black;
+}
+
+main{
+  background-color: gray;
 }
 </style>
 

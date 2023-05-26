@@ -2,7 +2,7 @@
     import { store } from '../store';
     
     export default{
-        name: "AppMain",
+        name: "AppMainFilm",
 
         data (){
             return{
@@ -17,6 +17,7 @@
 
 <template>
     <div class="contenitore">
+        <h1>Films:</h1>
 
         <div class="card" v-for="film in this.store.Films">
             <h2>{{ film.title }}</h2>
@@ -31,9 +32,11 @@
     .contenitore{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        
     }
     .card{
-        background-color: grey;
+        background-color: rgb(129, 11, 11);
         width: 300px;
         min-height: 150px;
         border: solid 1px black;
