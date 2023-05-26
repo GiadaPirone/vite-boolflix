@@ -10,7 +10,13 @@
             }
         },
         methods:{
-
+            generaImg(serie){
+                if(serie.poster_path == null){
+                    return "https://cdn131.picsart.com/295899653202201.jpg?type=webp&to=crop&r=256"
+                } else{
+                    return this.store.urlImg + serie.poster_path
+                }
+            }
         }
     }
 </script>
@@ -20,6 +26,9 @@
         <h1>Serie TV:</h1>
 
         <div class="card" v-for="serie in this.store.serieTV">
+            <div>
+                <img :src="generaImg(serie)" alt="">
+            </div>
             <h2>{{ serie.name}}</h2>
             <h3>{{ serie.original_name}}</h3>
             <h4>{{ serie.original_language }}</h4>

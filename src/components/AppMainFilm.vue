@@ -8,8 +8,6 @@
             return{
                 store,
                 urlImg: "https://image.tmdb.org/t/p/",
-                dimensioneImg: "w342",
-                nuovaImg:"https://en.wikipedia.org/wiki/Jellyfish#/media/File:Sea_Nettle_Jelly_1.jpg"
             }
         },
         methods:{
