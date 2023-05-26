@@ -21,10 +21,10 @@ export default{
   },
   mounted(){
 
-     axios.get(this.store.url).then(r=>{
-      this.store.filtoFilm = r.data.results
-      console.log(r.data)
-     })
+    //  axios.get(this.store.url).then(r=>{
+    //   this.store.filtoFilm = r.data.results
+    //   console.log(r.data)
+    //  })
   }
 }
 </script>

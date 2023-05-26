@@ -7,14 +7,14 @@ import { store } from '../store';
         data (){
             return{
                 store,
-                cercaFilm:""
+                
             }
         },
         methods:{
             filtraFilm(){
-                axios.get(this.store.url).then(r=>{
-                    this.store.Film = r.data
-                    console.log(r.data)
+                axios.get(`${this.store.url}${this.store.cercaFilm}`).then(r=>{
+                    this.store.Films = r.data.results
+                    console.log(r.data.results)
                 })
             }
         },
@@ -30,7 +30,7 @@ import { store } from '../store';
         </div>
 
         <div>
-            <input type="text" placeholder="Cerca Film" @change="filtraFilm" v-model="cercaFilm">
+            <input type="text" placeholder="Cerca Film" @change="filtraFilm" v-model="store.cercaFilm">
             <button>cerca</button>
         </div>
     </div>
