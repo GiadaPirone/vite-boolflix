@@ -26,7 +26,7 @@
         <h1>Serie TV:</h1>
 
         <div class="card" v-for="serie in this.store.serieTV">
-            <div>
+            <div class="contenitoreImg">
                 <img :src="generaImg(serie)" alt="">
             </div>
             <h2>{{ serie.name}}</h2>
@@ -51,5 +51,9 @@
         width: 300px;
         min-height: 150px;
         border: solid 1px black;
+    }
+    .contenitoreImg{
+        display: flex;
+        justify-content: center;
     }
 </style>

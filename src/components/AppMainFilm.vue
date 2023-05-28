@@ -27,7 +27,7 @@
         <h1>Films:</h1>
 
         <div class="card" v-for="film in this.store.Films">
-            <div>
+            <div class="contenitoreImg">
                 <img :src="generaImg(film)" alt="">
             </div>
             <h2>{{ film.title }}</h2>
@@ -50,5 +50,9 @@
         width: 300px;
         min-height: 150px;
         border: solid 1px black;
+    }
+    .contenitoreImg{
+        display: flex;
+        justify-content: center;
     }
 </style>
