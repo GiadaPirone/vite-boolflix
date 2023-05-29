@@ -8,7 +8,8 @@
             return{
                 store,
                 bandiereDisponibile: ["it", "en", "pt"],
-                 
+                stelle:[],
+                
             }
         },
         methods:{
@@ -21,9 +22,22 @@
             },
             recuperaBandiera(percorso){
                 return new URL (percorso, import.meta.url);
+            },
+            generaStelle(voto){
+                this.stelle.push(Math.round(voto / 2))
+                console.log(this.stelle);
+                return Math.round(voto / 2)
+                
             }
-            
+        },
+        mounted(){
+            // for (let i= 0; i < this.Arrotondamento; i++) {
+            //     this.stelle.push("*")
+            //     console.log(this.stelle)
+                
+            // }
         }
+        
     }
 </script>
 
@@ -37,9 +51,11 @@
             </div>
             <h2>{{ film.title }}</h2>
             <h3>{{ film.original_title }}</h3>
-            <h4>{{ film.original_language }}</h4>
             <img v-if="bandiereDisponibile.includes(film.original_language)" :src="recuperaBandiera(`../assets/${film.original_language}.svg`)" class="bandiera" alt="">
-            <p v-else >{{ film.vote_average }}</p>
+            <p v-else > {{ film.original_language }}</p>
+            <span v-for="numero in generaStelle(film.vote_average) ">*</span>
+            <span v-for="numero in 5 - generaStelle(film.vote_average) ">#</span>
+
         </div>
     </div>
 </template>
