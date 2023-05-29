@@ -7,6 +7,7 @@
         data (){
             return{
                 store,
+                bandiereDisponibile: ["it", "en", "pt"],
             }
         },
         methods:{
@@ -16,6 +17,10 @@
                 } else{
                     return this.store.urlImg + serie.poster_path
                 }
+            },
+            generaBandiera(percorso){
+                return new URL (percorso, import.meta.url);
+
             }
         }
     }
@@ -31,7 +36,8 @@
             </div>
             <h2>{{ serie.name}}</h2>
             <h3>{{ serie.original_name}}</h3>
-            <h4>{{ serie.original_language }}</h4>
+            <img v-if="bandiereDisponibile.includes(serie.original_language)" :src="generaBandiera (`../assets/${serie.original_language}.svg`)" class="bandiera" alt="">
+            <h4 v-else>{{ serie.original_language }}</h4>
             <p>{{ serie.vote_average }}</p>
         </div>
     </div>
@@ -55,5 +61,9 @@
     .contenitoreImg{
         display: flex;
         justify-content: center;
+    }
+    .bandiera{
+        height: 20px;
+        width: 30px;
     }
 </style>

@@ -7,7 +7,8 @@
         data (){
             return{
                 store,
-                urlImg: "https://image.tmdb.org/t/p/",
+                bandiereDisponibile: ["it", "en", "pt"],
+                 
             }
         },
         methods:{
@@ -17,7 +18,11 @@
                 } else{
                     return this.store.urlImg + film.poster_path
                 }
+            },
+            recuperaBandiera(percorso){
+                return new URL (percorso, import.meta.url);
             }
+            
         }
     }
 </script>
@@ -33,7 +38,8 @@
             <h2>{{ film.title }}</h2>
             <h3>{{ film.original_title }}</h3>
             <h4>{{ film.original_language }}</h4>
-            <p>{{ film.vote_average }}</p>
+            <img v-if="bandiereDisponibile.includes(film.original_language)" :src="recuperaBandiera(`../assets/${film.original_language}.svg`)" class="bandiera" alt="">
+            <p v-else >{{ film.vote_average }}</p>
         </div>
     </div>
 </template>
@@ -54,5 +60,10 @@
     .contenitoreImg{
         display: flex;
         justify-content: center;
+    }
+
+    .bandiera{
+        height: 20px;
+        width: 30px;
     }
 </style>
